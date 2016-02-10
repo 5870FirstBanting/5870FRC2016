@@ -21,8 +21,12 @@ public class OI {
 	
 	private final Joystick joy; 
 	   private Button[] button=new Button[10]; 
-	    
-	   public Axis LeftStick=new Axis(0,0), RightStick=new Axis(0,0); 
+	   
+		public static final Joystick controller = new Joystick();
+		public JoystickButton stopButton = new JoystickButton(controller);
+		
+	   public Axis LeftStick=new Axis(0,0), RightStick=new Axis(0,0);
+	   
 	   public triggers Triggers=new triggers(0,0); 
 	   public buttons Buttons; 
 	   public POV DPad = new POV(); 
