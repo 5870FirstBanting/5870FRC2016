@@ -24,7 +24,7 @@ public class Hold extends Command {
 		Robot.holding = !Robot.holding;
 		if(!Robot.intaking) {
 			if (Robot.holding) {
-				Robot.intake.spin(-0.1);
+				Robot.intake.spin(-0.3);
 			}
 //			else if (Math.abs(Math.abs(Robot.intake.getPower()) - 0.1) < 0.000001) {
 //				Robot.intake.spin(0);

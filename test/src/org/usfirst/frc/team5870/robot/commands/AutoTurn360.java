@@ -10,8 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutoTurn360 extends Command {
 	double time;
-    public AutoTurn360(double time) {
-    	this.time = time;
+    public AutoTurn360() {
     	requires(Robot.chassis);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -24,8 +23,6 @@ public class AutoTurn360 extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.chassis.drive(0.75, -0.75);
-		Timer.delay(time);
-		Robot.chassis.drive(0, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

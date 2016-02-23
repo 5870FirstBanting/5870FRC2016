@@ -29,10 +29,10 @@ public class Chassis extends Subsystem {
     }
 
 	public void drive(double leftPower, double rightPower) { 
-//    	this.leftPower = leftPower;				// Comment out during normal run time
-//    	this.rightPower = rightPower;			// Comment out during normal run time
-// 	   	myRobot.tankDrive(leftPower, rightPower);
-		myRobot.tankDrive(0,0);
+    	this.leftPower = leftPower;				// Comment out during normal run time
+    	this.rightPower = rightPower;			// Comment out during normal run time
+ 	   	myRobot.tankDrive(leftPower, rightPower);
+//		myRobot.tankDrive(0,0);
  	}
 	
 }

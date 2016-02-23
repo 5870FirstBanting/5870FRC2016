@@ -34,6 +34,9 @@ public class FieldPosition extends CommandGroup {
 	}
 
 	public void goOverObstacle() {
+		
+		addSequential(new AutoTurn360(), 1.4);
+		
 		switch (obstacle) { // In order from manual, added all just incase we
 							// are forced to?? -> can turn around and start
 							// heading toward other obstacle
@@ -70,8 +73,8 @@ public class FieldPosition extends CommandGroup {
 			addSequential(new AutoMoveForward(0.5));
 			break;
 		case 9: // Lowbar
-			addSequential(new AutoMoveForward(0.75), 5);
-			// afterObstacle();
+			addSequential(new AutoMoveForward(-0.75), 5);
+			 afterObstacle();
 			break;
 		default:
 			// Did not assign valueng.
@@ -81,17 +84,20 @@ public class FieldPosition extends CommandGroup {
 	}
 
 	public void afterObstacle() {
+		
+		addSequential(new AutoTurn360(), 1.4);
+		
 		switch (position) {
 		case 1: // 1 (Lowbar)
 			// test both component and vector approach and test time difference
 			// (vector requires additional maneuvering)
 			// addSequential (new AutoMoveForward(0.5));//cut this time down by
 			// increasing motor power for straight forward
-			addSequential(new AutoTurnRight(), 1);// decrease motor power for a
+			//addSequential(new AutoTurnRight(), 1);// decrease motor power for a
 													// clean precise turn
 			addSequential(new AutoMoveForward(0.75), 1);
-			addSequential(new AutoOuttake(), 2);
-			addSequential(new StopIntake());
+//			addSequential(new AutoOuttake(), 2);
+//			addSequential(new StopIntake());
 
 			// addSequential(new AutoMoveForward(-0.75), 2);
 			// addSequential(new AutoTurnRight(), 2);//decrease motor power for
@@ -120,7 +126,7 @@ public class FieldPosition extends CommandGroup {
 		case 5: // 5
 			addSequential(new AutoTurnLeft(1.5));
 			addSequential(new AutoMoveForward(0.5));
-			// addSequential(new AutoOuttake());
+//			 addSequential(new AutoOuttake());
 			break;
 
 		default:

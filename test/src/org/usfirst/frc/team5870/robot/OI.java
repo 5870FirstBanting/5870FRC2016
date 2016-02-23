@@ -27,8 +27,8 @@ public class OI {
 	//public JoystickButton climbDownButton = new JoystickButton(mXboxController, 3);
 	//public JoystickButton climbUpButton = new JoystickButton(mXboxController, 4);
 	
-	public JoystickButton intakeTrigger = new JoystickButton(mXboxController, 5);
-	public JoystickButton outtakeTrigger = new JoystickButton(mXboxController, 6);
+	public JoystickButton intakeTrigger = new JoystickButton(mXboxController, 1);
+	public JoystickButton outtakeTrigger = new JoystickButton(mXboxController, 2);
 	
 	public JoystickButton stopButton = new JoystickButton(mXboxController, 7);
 	

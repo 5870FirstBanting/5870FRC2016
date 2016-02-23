@@ -31,12 +31,12 @@ public class AutoMoveForward extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 
-		for (int i = 10; i >= 1; i--) {
-			Robot.chassis.drive(power / i, power / i + 0.0328 / i);
-			Timer.delay(0.1);
-		}
+//		for (int i = 10; i >= 1; i--) {
+//			Robot.chassis.drive(power / i, power / i + 0.0328 / i);
+//			Timer.delay(0.1);
+//		}
 
-		// Robot.chassis.drive(power, power + 0.0328);
+		 Robot.chassis.drive(power, power + 0.0328);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

@@ -9,7 +9,6 @@ import org.usfirst.frc.team5870.robot.commands.Intake;
 import org.usfirst.frc.team5870.robot.commands.Outtake;
 import org.usfirst.frc.team5870.robot.commands.StopIntake;
 import org.usfirst.frc.team5870.robot.commands.StopRumble;
-import org.usfirst.frc.team5870.robot.commands.SwitchHold;
 import org.usfirst.frc.team5870.robot.subsystems.Arm;
 import org.usfirst.frc.team5870.robot.subsystems.Chassis;
 import org.usfirst.frc.team5870.robot.subsystems.IntakeMotors;
