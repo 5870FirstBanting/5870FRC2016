@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 	SendableChooser autoChooser;
 	Command autonomousCommand;
 	public static FieldPosition position;
-	public static boolean holding = true;
+	public static boolean holding = false;
 	public static boolean intaking = false;
 
 	/**
@@ -97,7 +97,9 @@ public class Robot extends IterativeRobot {
 		oi.stopButton.whileActive(new FullStop());
 
 //		oi.holdButton.whenPressed(new SwitchHold());
-		
+		oi.holdButton.whileHeld(new GrumbleRumble(0.5F));
+		oi.holdButton.whenReleased(new StopIntake());
+		oi.holdButton.whenPressed(new Hold());
 		
 //		intake.spin(0.1);
 		

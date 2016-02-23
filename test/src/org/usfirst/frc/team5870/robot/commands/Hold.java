@@ -21,10 +21,15 @@ public class Hold extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		Robot.holding = !Robot.holding;
 		if(!Robot.intaking) {
 			if (Robot.holding) {
 				Robot.intake.spin(-0.1);
-			} else if (Math.abs(Math.abs(Robot.intake.getPower()) - 0.1) < 0.000001) {
+			}
+//			else if (Math.abs(Math.abs(Robot.intake.getPower()) - 0.1) < 0.000001) {
+//				Robot.intake.spin(0);
+//			}
+			else {
 				Robot.intake.spin(0);
 			}
 		}
