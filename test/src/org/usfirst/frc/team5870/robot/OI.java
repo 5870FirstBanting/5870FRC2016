@@ -34,6 +34,9 @@ public class OI {
 	
 	public JoystickButton holdButton = new JoystickButton(mXboxController, 8);
 	
+	public JoystickButton liftButton = new JoystickButton(mXboxController, 3);
+	public JoystickButton dropButton = new JoystickButton(mXboxController, 4);
+	
 	/*public final Joystick joy= new Joyst; 
 	   private Button[] button=new Button[10]; 
 	    

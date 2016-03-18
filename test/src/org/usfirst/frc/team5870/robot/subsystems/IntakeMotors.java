@@ -14,10 +14,12 @@ public class IntakeMotors extends Subsystem {
  // here. Call these from Commands.
 	 
 	private Victor intakeMotor;
+	private Victor intakeLiftMotor;
 	
 	  public IntakeMotors(){
 //		IntakeMotor = new Victor(0);
 		intakeMotor = new Victor(RobotMap.intakeMotor);
+		intakeLiftMotor = new Victor(RobotMap.intakeLiftMotor);
 	 }
 	  
 	 public void spin(double Power){
@@ -25,6 +27,11 @@ public class IntakeMotors extends Subsystem {
 		 
 	 }
 	
+	 public void lift(double power) {
+		 intakeLiftMotor.set(power);
+	 }
+	 
+	 
 	 public double getPower() {
 		 return intakeMotor.get();
 	 }

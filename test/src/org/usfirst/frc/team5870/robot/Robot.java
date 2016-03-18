@@ -9,6 +9,8 @@ import org.usfirst.frc.team5870.robot.commands.Intake;
 import org.usfirst.frc.team5870.robot.commands.Outtake;
 import org.usfirst.frc.team5870.robot.commands.StopIntake;
 import org.usfirst.frc.team5870.robot.commands.StopRumble;
+import org.usfirst.frc.team5870.robot.commands.drop;
+import org.usfirst.frc.team5870.robot.commands.lift;
 import org.usfirst.frc.team5870.robot.subsystems.Arm;
 import org.usfirst.frc.team5870.robot.subsystems.Chassis;
 import org.usfirst.frc.team5870.robot.subsystems.IntakeMotors;
@@ -76,30 +78,37 @@ public class Robot extends IterativeRobot {
 
 		// SmartDashboard.putData("DriveChooser", driveChooser);
 
+		// Safety button
 		oi.stopButton.whenPressed(new FullStop());
 		oi.stopButton.whileHeld(new GrumbleRumble(1)); // Requires a float
 		oi.stopButton.whenPressed(new StopIntake());
+		oi.stopButton.whileActive(new FullStop());
 
+		// Intake trigger
 		oi.intakeTrigger.whileHeld(new Intake());
 		oi.outtakeTrigger.whileHeld(new Outtake());
 		oi.intakeTrigger.whileHeld(new GrumbleRumble(0.75F)); // Requires a
-																// float
+		// float
+		
+		// Outtake trigger
 		oi.outtakeTrigger.whileHeld(new GrumbleRumble(0.75F)); // Requires a
 																// float
-
 		oi.intakeTrigger.whenReleased(new StopIntake());
 		oi.outtakeTrigger.whenReleased(new StopIntake());
 
 		oi.intakeTrigger.whenReleased(new StopRumble());
 		oi.outtakeTrigger.whenReleased(new StopRumble());
 
-		oi.stopButton.whileActive(new FullStop());
-
 //		oi.holdButton.whenPressed(new SwitchHold());
+		
+		// Experimental hold feauture
 		oi.holdButton.whileHeld(new GrumbleRumble(0.5F));
 		oi.holdButton.whenReleased(new StopIntake());
 		oi.holdButton.whenPressed(new Hold());
 		
+		// Lift and drop buttons
+		oi.liftButton.whenPressed(new lift());
+		oi.dropButton.whenPressed(new drop());
 //		intake.spin(0.1);
 		
 		
