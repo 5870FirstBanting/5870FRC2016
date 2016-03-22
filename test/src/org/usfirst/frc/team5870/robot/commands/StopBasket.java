@@ -7,9 +7,9 @@ import org.usfirst.frc.team5870.robot.Robot;
 /**
  *
  */
-public class Outtake extends Command {
+public class StopBasket extends Command {
 
-    public Outtake() {
+    public StopBasket() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.intake);
     }
@@ -20,7 +20,7 @@ public class Outtake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intake.powerIntake(-1.0);;
+    	Robot.intake.powerBasket(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

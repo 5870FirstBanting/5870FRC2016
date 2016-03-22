@@ -1,19 +1,19 @@
 
 package org.usfirst.frc.team5870.robot;
 
+import org.usfirst.frc.team5870.robot.commands.Drop;
+import org.usfirst.frc.team5870.robot.commands.IntakeCommand;
+import org.usfirst.frc.team5870.robot.commands.Lift;
+import org.usfirst.frc.team5870.robot.commands.StopBasket;
 import org.usfirst.frc.team5870.robot.commands.FieldPosition;
 import org.usfirst.frc.team5870.robot.commands.FullStop;
 import org.usfirst.frc.team5870.robot.commands.GrumbleRumble;
-import org.usfirst.frc.team5870.robot.commands.Hold;
-import org.usfirst.frc.team5870.robot.commands.Intake;
 import org.usfirst.frc.team5870.robot.commands.Outtake;
 import org.usfirst.frc.team5870.robot.commands.StopIntake;
 import org.usfirst.frc.team5870.robot.commands.StopRumble;
-import org.usfirst.frc.team5870.robot.commands.drop;
-import org.usfirst.frc.team5870.robot.commands.lift;
 import org.usfirst.frc.team5870.robot.subsystems.Arm;
 import org.usfirst.frc.team5870.robot.subsystems.Chassis;
-import org.usfirst.frc.team5870.robot.subsystems.IntakeMotors;
+import org.usfirst.frc.team5870.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -35,7 +35,7 @@ public class Robot extends IterativeRobot {
 	public static Arm arm;
 	public static OI oi;
 	public static CameraServer webcam;
-	public static IntakeMotors intake;
+	public static Intake intake;
 	SendableChooser autoChooser;
 	Command autonomousCommand;
 	public static FieldPosition position;
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
 		chassis = new Chassis(1); // Drivetype - 0: halo, 1: trigger, 2: arcade,
 									// 3: tank
 		oi = new OI();
-		intake = new IntakeMotors();
+		intake = new Intake();
 		arm = new Arm();
 		webcam = CameraServer.getInstance();
 		webcam.setQuality(50);
@@ -78,47 +78,29 @@ public class Robot extends IterativeRobot {
 
 		// SmartDashboard.putData("DriveChooser", driveChooser);
 
-		// Safety button
 		oi.stopButton.whenPressed(new FullStop());
 		oi.stopButton.whileHeld(new GrumbleRumble(1)); // Requires a float
 		oi.stopButton.whenPressed(new StopIntake());
+
+		oi.liftBtn.whenActive(new Lift());
+        oi.liftBtn.whenReleased(new StopBasket());
+        
+        oi.dropBtn.whenActive(new Drop());
+        oi.dropBtn.whenReleased(new StopBasket());
+        
+        oi.intakeBtn.whenActive(new IntakeCommand());
+        oi.intakeBtn.whenReleased(new StopIntake());
+        
+        oi.outtakeBtn.whenActive(new Outtake());
+        oi.outtakeBtn.whenReleased(new StopIntake());
+        
 		oi.stopButton.whileActive(new FullStop());
 
-		// Intake trigger
-		oi.intakeTrigger.whileHeld(new Intake());
-		oi.outtakeTrigger.whileHeld(new Outtake());
-		oi.intakeTrigger.whileHeld(new GrumbleRumble(0.75F)); // Requires a
-		// float
-		
-		// Outtake trigger
-		oi.outtakeTrigger.whileHeld(new GrumbleRumble(0.75F)); // Requires a
-																// float
-		oi.intakeTrigger.whenReleased(new StopIntake());
-		oi.outtakeTrigger.whenReleased(new StopIntake());
-
-		oi.intakeTrigger.whenReleased(new StopRumble());
-		oi.outtakeTrigger.whenReleased(new StopRumble());
-
 //		oi.holdButton.whenPressed(new SwitchHold());
-		
-		// Experimental hold feauture
 		oi.holdButton.whileHeld(new GrumbleRumble(0.5F));
 		oi.holdButton.whenReleased(new StopIntake());
-		oi.holdButton.whenPressed(new Hold());
 		
-		// Lift and drop buttons
-		oi.liftButton.whenPressed(new lift());
-		oi.dropButton.whenPressed(new drop());
-//		intake.spin(0.1);
-		
-		
-		// oi.reachUpButton.whenPressed(new Reach(true));
-		// oi.reachDownButton.whenPressed(new Reach(false));
 
-		// oi.climbUpButton.whenPressed(new Climb(true));
-		// oi.climbDownButton.whenPressed(new Climb(false));
-
-		// chooser.addObject("My Auto", new MyAutoCommand());
 	}
 
 	/**

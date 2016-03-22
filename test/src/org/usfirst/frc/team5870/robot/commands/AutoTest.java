@@ -30,6 +30,8 @@ public class AutoTest extends CommandGroup {
 		// addParallel(new DriveFor(.2,20));//TODO fix this //change paramaters
 		// in DriveFor
 		// addParallel(new Interpreter());
+		
+		driveType = 0;
 		switch (driveType) {
 		case 0:
 			addSequential(new HaloDrive());

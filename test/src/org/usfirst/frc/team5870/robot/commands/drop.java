@@ -1,18 +1,18 @@
+
 package org.usfirst.frc.team5870.robot.commands;
 
-import org.usfirst.frc.team5870.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+
+import org.usfirst.frc.team5870.robot.Robot;
 
 /**
  *
  */
-public class drop extends Command {
+public class Drop extends Command {
 
-    public drop() {
+    public Drop() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.intake);
+        requires(Robot.intake);
     }
 
     // Called just before this Command runs the first time
@@ -21,21 +21,16 @@ public class drop extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intake.lift(-0.5);
+    	Robot.intake.powerBasket(-0.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(!Robot.oi.liftButton.get()) {
-    		return true;
-    	}
         return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intake.lift(0);
-//    	Robot.intake.spin(0);
     }
 
     // Called when another command which requires one or more of the same
