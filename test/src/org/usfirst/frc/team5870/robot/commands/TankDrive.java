@@ -20,12 +20,12 @@ public class TankDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double leftPower = Robot.oi.mXboxController.getRawAxis(1);
-    	double rightPower = Robot.oi.mXboxController.getRawAxis(5);
-    	if (Robot.oi.mXboxController.getRawAxis(5) > -0.15 && Robot.oi.mXboxController.getRawAxis(5) < 0.15) { // Added deadzone, if forwardPower is less than 0.5, robot does not move forward
+    	double leftPower = Robot.oi.intakeController.getRawAxis(1);
+    	double rightPower = Robot.oi.intakeController.getRawAxis(5);
+    	if (Robot.oi.intakeController.getRawAxis(5) > -0.15 && Robot.oi.intakeController.getRawAxis(5) < 0.15) { // Added deadzone, if forwardPower is less than 0.5, robot does not move forward
     		leftPower = 0;
     	}
-    	if (Robot.oi.mXboxController.getRawAxis(1) > -0.15 && Robot.oi.mXboxController.getRawAxis(1) < 0.15) { // Added deadzone, if forwardPower is less than 0.5, robot does not move forward
+    	if (Robot.oi.intakeController.getRawAxis(1) > -0.15 && Robot.oi.intakeController.getRawAxis(1) < 0.15) { // Added deadzone, if forwardPower is less than 0.5, robot does not move forward
     		rightPower = 0;
     	}
     	

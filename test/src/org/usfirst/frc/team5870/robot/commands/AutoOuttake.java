@@ -29,7 +29,7 @@ public AutoOuttake() {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.intaking = true;
-    	Robot.intake.spin(2);//Tweak these values
+    	Robot.intake.powerIntake(2);//Tweak these values
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +39,7 @@ public AutoOuttake() {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intake.spin(0.0);
+    	Robot.intake.powerIntake(2);
     }
 
     // Called when another command which requires one or more of the same

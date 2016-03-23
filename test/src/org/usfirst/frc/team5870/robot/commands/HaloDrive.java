@@ -22,8 +22,8 @@ public class HaloDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double forwardPower = -Robot.oi.mXboxController.getRawAxis(1);
-    	double turnMod =Robot.oi.mXboxController.getRawAxis(4);
+    	double forwardPower = -Robot.oi.driverController.getRawAxis(1);
+    	double turnMod =Robot.oi.driverController.getRawAxis(4);
     	double leftPower = forwardPower;
     	double rightPower = forwardPower;
     	double percent = 0.60;

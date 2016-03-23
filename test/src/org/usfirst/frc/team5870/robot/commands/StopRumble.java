@@ -22,8 +22,11 @@ public class StopRumble extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		Robot.oi.mXboxController.setRumble(RumbleType.kLeftRumble,  0);
-		Robot.oi.mXboxController.setRumble(RumbleType.kRightRumble, 0);
+		Robot.oi.intakeController.setRumble(RumbleType.kLeftRumble,  0);
+		Robot.oi.intakeController.setRumble(RumbleType.kRightRumble, 0);
+		
+		Robot.oi.driverController.setRumble(RumbleType.kLeftRumble, 0);
+		Robot.oi.driverController.setRumble(RumbleType.kRightRumble, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,8 +36,11 @@ public class StopRumble extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.oi.mXboxController.setRumble(RumbleType.kLeftRumble, 0);
-		Robot.oi.mXboxController.setRumble(RumbleType.kRightRumble, 0);
+    	Robot.oi.intakeController.setRumble(RumbleType.kLeftRumble, 0);
+		Robot.oi.intakeController.setRumble(RumbleType.kRightRumble, 0);
+		
+		Robot.oi.driverController.setRumble(RumbleType.kLeftRumble, 0);
+		Robot.oi.driverController.setRumble(RumbleType.kRightRumble, 0);
     }
 
     // Called when another command which requires one or more of the same

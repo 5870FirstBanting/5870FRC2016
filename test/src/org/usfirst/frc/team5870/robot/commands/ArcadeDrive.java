@@ -21,9 +21,9 @@ public class ArcadeDrive extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		double forwardPower = Robot.oi.mXboxController.getRawAxis(1);
+		double forwardPower = Robot.oi.intakeController.getRawAxis(1);
 
-		double turnMod = Robot.oi.mXboxController.getRawAxis(0);
+		double turnMod = Robot.oi.intakeController.getRawAxis(0);
 		double leftPower = forwardPower;
 		double rightPower = forwardPower;
 

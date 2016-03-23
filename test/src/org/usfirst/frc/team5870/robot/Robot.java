@@ -81,24 +81,27 @@ public class Robot extends IterativeRobot {
 		oi.stopButton.whenPressed(new FullStop());
 		oi.stopButton.whileHeld(new GrumbleRumble(1)); // Requires a float
 		oi.stopButton.whenPressed(new StopIntake());
+		oi.stopButton.whileActive(new FullStop());
 
 		oi.liftBtn.whenActive(new Lift());
+		oi.liftBtn.whileHeld(new GrumbleRumble(0.2F));
         oi.liftBtn.whenReleased(new StopBasket());
         
         oi.dropBtn.whenActive(new Drop());
+        oi.dropBtn.whileHeld(new GrumbleRumble(0.2F));
         oi.dropBtn.whenReleased(new StopBasket());
         
         oi.intakeBtn.whenActive(new IntakeCommand());
+        oi.intakeBtn.whileHeld(new GrumbleRumble(0.5F));
         oi.intakeBtn.whenReleased(new StopIntake());
         
         oi.outtakeBtn.whenActive(new Outtake());
+        oi.outtakeBtn.whileHeld(new GrumbleRumble(0.5F));
         oi.outtakeBtn.whenReleased(new StopIntake());
         
-		oi.stopButton.whileActive(new FullStop());
-
 //		oi.holdButton.whenPressed(new SwitchHold());
-		oi.holdButton.whileHeld(new GrumbleRumble(0.5F));
-		oi.holdButton.whenReleased(new StopIntake());
+//		oi.holdButton.whileHeld(new GrumbleRumble(0.5F));
+//		oi.holdButton.whenReleased(new StopIntake());
 		
 
 	}

@@ -23,14 +23,14 @@ public class TriggerDrive extends Command {
     protected void execute() {
     	double forwardPower;
     	
-    	if(Robot.oi.mXboxController.getRawAxis(2)>0){
-    		forwardPower = -Robot.oi.mXboxController.getRawAxis(2) * 1.5;
+    	if(Robot.oi.driverController.getRawAxis(2)>0){
+    		forwardPower = -Robot.oi.driverController.getRawAxis(2) * 1.5;
     	}
     	else{
-    		forwardPower = Robot.oi.mXboxController.getRawAxis(3) * 1.5;
+    		forwardPower = Robot.oi.driverController.getRawAxis(3) * 1.5;
     	}
     	
-    	double turnMod = Robot.oi.mXboxController.getRawAxis(4);
+    	double turnMod = Robot.oi.driverController.getRawAxis(4);
     	double leftPower = forwardPower;
     	double rightPower = forwardPower; 
 

@@ -19,17 +19,19 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public Joystick mXboxController = new Joystick(0);
+	public Joystick intakeController = new Joystick(0);
+	public Joystick driverController = new Joystick(1);
 	
-	public JoystickButton stopButton = new JoystickButton(mXboxController, 7);
 	
-	public JoystickButton holdButton = new JoystickButton(mXboxController, 8);
+	public JoystickButton stopButton = new JoystickButton(intakeController, 7);
 	
-	JoystickButton liftBtn = new JoystickButton(mXboxController, 1);
-	JoystickButton dropBtn = new JoystickButton(mXboxController, 2);
+//	public JoystickButton holdButton = new JoystickButton(intakeController, 8);
 	
-	JoystickButton intakeBtn = new JoystickButton(mXboxController, 3);
-	JoystickButton outtakeBtn = new JoystickButton(mXboxController, 4);
+	JoystickButton liftBtn = new JoystickButton(intakeController, 1);
+	JoystickButton dropBtn = new JoystickButton(intakeController, 2);
+	
+	JoystickButton intakeBtn = new JoystickButton(intakeController, 3);
+	JoystickButton outtakeBtn = new JoystickButton(intakeController, 4);
 	
 }
 
